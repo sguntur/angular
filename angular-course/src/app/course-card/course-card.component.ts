@@ -1,8 +1,6 @@
 import { Component, OnInit, Input, EventEmitter, Output } from '@angular/core';
 import { Course } from '../model/course';
 
-
-
 @Component({
   selector: 'course-card',
   templateUrl: './course-card.component.html',
@@ -31,4 +29,15 @@ export class CourseCardComponent implements OnInit {
   isImageValid(){
     return this.course && this.course.iconUrl;
   }
+
+  cardClasses(){
+    if(this.course.category == 'BEGINNER'){
+      return 'beginner';
+    }
+  }
+
+  courseStyles(){
+    return {'background-image': 'url('+this.course.iconUrl+')'};
+  }
+
 }
